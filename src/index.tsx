@@ -16,6 +16,17 @@ axios.interceptors.response.use(
     if (error.response.status === 400) {
       alert(error.response.data?.data);
     }
+
+    if (error.response.status === 401) {
+      console.error(JSON.stringify(error));
+      alert(error.message);
+    }
+
+    if (error.response.status === 403) {
+      console.log(JSON.stringify(error));
+      alert(error.message);
+    }
+
     return Promise.reject(error.response);
   }
 );
